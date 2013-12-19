@@ -24,7 +24,7 @@ def title_entry(title, len)
 	diff = len - title.length
 	left_margin = 0
 	right_margin = 0
-	
+
 	if diff % 2 == 0
 		left_margin = diff / 2
 		right_margin = diff / 2
@@ -33,11 +33,13 @@ def title_entry(title, len)
 		right_margin = diff / 2 + 1
 	end
 
+	horizontal_line(len)
 	print "|"
 	left_margin.times { print " "}
 	print "#{title}"
 	right_margin.times { print " "}
 	puts "|"
+	horizontal_line(len)
 end
 
 def list_entry(input, len)
@@ -47,15 +49,13 @@ def list_entry(input, len)
 		diff.times { print " " }
 		puts "|"
 	}
+	horizontal_line(len)
 end
 
 def list_generator(title, input)
 	longest = find_longest(title, input)
-	horizontal_line(longest)
 	title_entry(title, longest)
-	horizontal_line(longest)
 	list_entry(input, longest)
-	horizontal_line(longest)
 end
 
 list_generator(title, input)
