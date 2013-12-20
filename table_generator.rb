@@ -1,6 +1,11 @@
 title = 'Necessities'
 input = ['fairy', 'cakes', 'happy', 'fish', 'disgustipated', 'melon-balls']
 
+titles = ['Name', 'Address', 'Description']
+data = [['Reddit', 'www.reddit.com', 'the frontpage of the internet'],
+        ['Wikipedia', 'en.wikipedia.net', 'The Free Encyclopedia'],
+        ['xkcd', 'xkcd.com', 'Sudo make me a sandwich.']]
+
 def find_longest(title, input)
 	longest = 0
 	longest = title.length
@@ -58,4 +63,14 @@ def list_generator(title, input)
 	list_entry(input, longest)
 end
 
+def table_generator(titles, data)
+	titles.zip(data.transpose()) { |title, data| 
+		longest = find_longest(title, data)
+		title_entry(title, longest)
+		list_entry(data, longest)
+	}
+end
+
 list_generator(title, input)
+
+table_generator(titles, data)
