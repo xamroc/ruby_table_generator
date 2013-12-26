@@ -10,11 +10,11 @@ def find_longest(title, input)
 	longest = 0
 	longest = title.length
 
-	input.each { |item| 
-		if item.length > longest
-			longest = item.length
-		end
-	}
+	input.each { |item| longest = item.length if item.length > longest }
+
+  #   if item.length > longest
+    #   longest = item.length
+    # end
 
 	return longest
 end
